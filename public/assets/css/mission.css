@@ -6,7 +6,7 @@
 
 .wrapper {
     position: relative;
-    height: 156vh;
+    height: 182vh;
     background: #fff ;
     overflow: hidden;
     background-attachment: fixed;
@@ -113,7 +113,7 @@ width: 200px;
   position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-112px) translateY(-383px);
+      transform: translateX(-112px) translateY(-463px);
       width: 200px;
 }
 
