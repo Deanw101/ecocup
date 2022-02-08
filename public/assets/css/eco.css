@@ -154,6 +154,10 @@ width: 200px;
   }
 }
 
+.background {
+      z-index: 99;
+}
+
 
 .sub-heading h1 {
   font-family: 'Pathway Gothic One', sans-serif;

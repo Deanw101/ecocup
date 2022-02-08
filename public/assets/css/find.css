@@ -15,3 +15,6 @@
     font-size: 4.6rem!important;
   }
 }
+.background {
+      z-index: 99;
+}

@@ -634,7 +634,9 @@ padding: 20px 15px 0;
   }
 }
 
-
+.background {
+      z-index: 99;
+}
 
 .ccontainer input{
     display: none;
