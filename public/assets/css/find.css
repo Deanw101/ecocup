@@ -1,0 +1,17 @@
+@media (max-width:1481px) {
+  .wrapper {
+    height:1616px!important;
+  }
+}
+
+@media (max-width:880px) {
+  .wrapper {
+    height:2141px!important;
+  }
+}
+
+@media (max-width:467px) {
+  .section-text h1 {
+    font-size: 4.6rem!important;
+  }
+}

@@ -22,15 +22,8 @@ gsap.timeline({
 (function ($) {
     "use strict";
 
-
-
 		$(window).on('scroll', function() {
-						 if ($(window).scrollTop() >= $(
-							 '.wrapperTwo').offset().top + $('.wrapperTwo').
-								 outerHeight() - window.innerHeight) {
-									 document.getElementById('cone').style.setProperty("display", "none");
-									 document.getElementById('ctwo').style.setProperty("display", "block");
-						 }
+		
 						 var scroll_pos = $(this).scrollTop();
 						if(scroll_pos > 210) {
 								$('.menuh').css('color', '#000');
@@ -39,9 +32,20 @@ gsap.timeline({
 						}
 				 });
 
-
 				 $('#homem').on("click", function () {
 				   window.location.href = "index.html";
 				 })
+
+				 $('#missionm').on("click", function () {
+				   window.location.href = "mission.html";
+				 })
+
+				 $('#findm').on("click", function () {
+					window.location.href = "find.html";
+				})
+
+				$('#contactm').on("click", function () {
+				 window.location.href = "contact.html";
+			 })
 
 })(jQuery);
