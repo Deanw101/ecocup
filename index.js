@@ -17,24 +17,6 @@ const app = express();
 if (app.get('env') === 'development') require('dotenv').config();
 
 
-// rate limit config
-// var apiLimiter = new RateLimit({
-//   windowMs: 15*60*1000, // 15 minutes
-//   max: 1000, // limit each IP to 1000 requests
-//   delayMs: 0 // disabled until limit is met
-// });
-
-// nodemailer setup
-
-// const transporter = nodemailer.createTransport({
-//   port: 587,
-//   host: "smtp.office365.com",
-//   auth: {
-//     user: 'dwithersphotography@outlook.com',
-//     pass: process.env.EMAIL_PASS,
-//   },
-//   secure: false,
-// });
 
 
 // middleware
@@ -46,52 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: '1000kb' }));
 
 
-//
-// app.post('/api/schedulerequest', async (req, res) => {
-//   try {
-//     //
-//     // console.log('Schedule Reqest:', req.body);
-//     // res.status(201).json({});
-//     //
-//     let mailData
-//
-//      if (req.body.photoDateTime) {
-//        // console.log('photoshoot generate');
-//        mailData = generatePhotoshootEmail(req.body)
-//      }
-//
-//      if (req.body.eventDateTime) {
-//        // console.log('event generate');
-//        mailData = generateEventEmail(req.body)
-//      }
-//
-//      if (req.body.message) {
-//        // console.log('event generate');
-//        mailData = generateContactEmail(req.body);
-//        // console.log("asd");
-//      }
-//      //
-//      // console.log(mailData.to);
-//
-//     transporter.sendMail(mailData, function (err, info) {
-//        if(err) {
-//          console.log(err);
-//          res.status(418).json({ message: 'Failure' });
-//        } else {
-//          console.log(info);
-//          res.status(201).json({ received: true });
-//        }
-//     });
-//
-//
-//   } catch (e) {
-//
-//     console.log('ERROR'. e);
-//
-//     res.status(400).json({ error: e });
-//
-//   }
-// })
 
 
 app.use(express.static('public'));

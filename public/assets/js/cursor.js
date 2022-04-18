@@ -1,21 +1,3 @@
-console.clear();
-
-const { gsap, Splitting } = window;
-
-Splitting();
-
-gsap.set('.cards__wrapper', { autoAlpha: 1 })
-
-gsap.timeline({
-	defaults: {
-		duration: 1.25,
-		stagger: 0.125,
-		ease: "expo.inOut",
-	},
-})
-	.fromTo(".card__image--wrapper", { yPercent: 110 }, { yPercent: 0 }, 0)
-	.fromTo(".card__image--outer", { yPercent: -110 }, { yPercent: 0 }, 0)
-	.set(".cards__wrapper, .card", { pointerEvents: "all" }, "-=1");
 
 
 
@@ -196,27 +178,49 @@ gsap.timeline({
         cursor.init(); //Init custom cursor
     }
 
+    //--------------------------------------------------
+        // Magnetic
+        //--------------------------------------------------
 
+        $(document).on('mousemove', function (e) {
+            $('.magnetic').each(function () {
+                if (!isMobile) {
+                    magnetic(this, e); //Init effect magnetic
+                }
+            });
+        });
 
-		$(window).on('scroll', function() {
-						 if ($(window).scrollTop() >= $(
-							 '.wrapperTwo').offset().top + $('.wrapperTwo').
-								 outerHeight() - window.innerHeight) {
-									 document.getElementById('cone').style.setProperty("display", "none");
-									 document.getElementById('ctwo').style.setProperty("display", "block");
-						 }
-						 var scroll_pos = $(this).scrollTop();
-						if(scroll_pos > 210) {
-								$('.menuh').css('color', '#000');
-						} else {
-								$('.menuh').css('color', '#fff');
-						}
-				 });
+        function magnetic(el, e) {
+            var mX = e.pageX,
+                mY = e.pageY;
+            const obj = $(el);
 
+            const customDist = 20 * obj.data('dist') || 80,
+                centerX = obj.offset().left + obj.width() / 2,
+                centerY = obj.offset().top + obj.height() / 2;
 
-				 $('#homem').on("click", function () {
-				   window.location.href = "index.html";
-				 })
+            var deltaX = Math.floor((centerX - mX)) * -.4,
+                deltaY = Math.floor((centerY - mY)) * -.4;
+
+            var distance = calcDistance(obj, mX, mY);
+
+            if (distance < customDist) {
+                TweenMax.to(obj, .4, {
+                    y: deltaY,
+                    x: deltaX
+                });
+            } else {
+                TweenMax.to(obj, .4, {
+                    y: 0,
+                    x: 0
+                });
+            }
+        }
+
+        function calcDistance(elem, mouseX, mouseY) {
+            return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
+        }
+
 
 
 
